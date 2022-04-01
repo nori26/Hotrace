@@ -20,8 +20,23 @@ SRCS		:=\
 	ft_lstclear.c\
 	ft_lstdelone.c\
 	ft_lstnew.c\
+	ft_lstadd_front.c\
+	ft_lstnew_add_front.c\
 	ft_memchr.c\
 	ft_setptr.c\
+	ft_strcmp.c\
+	ft_strdup.c\
+	ft_calloc.c\
+	ft_memset.c\
+	ft_strlen.c\
+	ft_strcpy.c\
+	hash.c\
+	hash_add.c\
+	hash_bucket.c\
+	hash_clear.c\
+	hash_del.c\
+	hash_get.c\
+	hash_util.c\
 	main.c\
 
 OBJS		:= $(SRCS:.c=.o)
