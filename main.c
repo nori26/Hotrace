@@ -114,8 +114,11 @@ int print_searched_values(t_hash* dict)
 			hr_puterr("gnl");
 			return (1);
 		}
-		value = hash_get(dict, key);
-		print_value(key, value);
+		if (!(ret == 0 && !key[0]))
+		{
+			value = hash_get(dict, key);
+			print_value(key, value);
+		}
 		free(key);
 	}
 	return (0);
