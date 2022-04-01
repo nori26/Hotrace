@@ -33,6 +33,7 @@ t_hash	*create_dict(t_clist *kvlst)
 			break ;
 		kvlst = kvlst->next->next;
 	}
+	return (dict);
 	// hash_add(dict, key, value);
 }
 
