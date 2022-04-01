@@ -1,4 +1,4 @@
-#include "libft.h"
+#include <stdint.h>
 
 int	ft_setptr(void *dest, void *p)
 {
