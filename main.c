@@ -1,10 +1,15 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
+#include "ft_string.h"
 #include "get_next_line.h"
 #include "hash.h"
 
+#include <stdio.h>
+
 #define HASH_BASE_SIZE 1000000
+
+#define DEBUG printf("DEBUG\n");
 
 void	*ft_free_pass(void *to_free, void *newptr)
 {
@@ -27,14 +32,21 @@ t_hash	*create_dict(t_clist *kvlst)
 	kvlst = ft_clstfirst(kvlst);
 	while (!ft_clst_isend(kvlst))
 	{
-		key = kvlst->data;
-		value = kvlst->next->data;
+		key = (char *)kvlst->data; // key だけの時は dict に追加しない ??
+		// printf("data: %s\n", key);
+		value = (char *)kvlst->next->data;
 		if (!value)
 			break ;
+		if (!hash_add(dict, key, value))
+		{
+			hash_clear(dict); // hash 追加失敗 TODO error handling
+			return (NULL);
+		}
 		kvlst = kvlst->next->next;
 	}
+	// kvlst 消去
+	ft_clst_clear(&kvlst, free);
 	return (dict);
-	// hash_add(dict, key, value);
 }
 
 t_clist	*read_kvlst()
@@ -47,7 +59,7 @@ t_clist	*read_kvlst()
 	while (true)
 	{
 		ret = get_next_line(STDIN_FILENO, &line);
-		if (ret != 0)
+		if (ret < 0)
 		{
 			ft_clst_clear(&kvlst, free); //TODO error handling
 			return (NULL);
@@ -62,6 +74,46 @@ t_clist	*read_kvlst()
 	return (kvlst);
 }
 
+void search_engine(t_hash* dict)
+{
+	char *key;
+	char *value;
+	int ret;
+
+	key = NULL;
+	value = NULL;
+	while (true)
+	{
+		ret = get_next_line(STDIN_FILENO, &key);
+		if (ret == 0)
+			break;
+		if (ret < 0)
+		{
+			// key 取得失敗 // TODO error msg
+			break;
+		}
+		value = hash_get(dict, key);
+		// value がなかった時の処理
+		if (write(STDOUT_FILENO, value, ft_strlen(value)) < 0)
+		{
+			// 出力失敗 // TODO error msg
+			free(key);
+			// free(value);
+			break;
+		}
+		write(1, "\n", 1);
+	}
+	free(key);
+	key = NULL;
+	// free(value);
+}
+
+void destroy_dict(t_hash *dict)
+{
+	if (dict)
+		hash_destroy(&dict);
+}
+
 int main()
 {
 	t_clist	*kvlst;
@@ -71,7 +123,8 @@ int main()
 	if (!kvlst)
 		return (1);
 	dict = create_dict(kvlst);
-	get_key();
-	print_value();
-	destory_dict();
+	search_engine(dict);
+	// get_key();
+	// print_value();
+	destroy_dict(dict);
 }
