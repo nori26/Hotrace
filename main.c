@@ -128,7 +128,7 @@ void	print_value(char *key, char *value)
 	}
 }
 
-void	print_values(t_hotrace *hr)
+void	print_values_of_keylst(t_hotrace *hr)
 {
 	char	*key;
 	char	*value;
@@ -168,7 +168,7 @@ int main()
 		destroy_hotrace(&hr);
 		return (EXIT_FAILURE);
 	}
-	print_values(&hr);
+	print_values_of_keylst(&hr);
 	destroy_hotrace(&hr);
 	return (EXIT_SUCCESS);
 }
