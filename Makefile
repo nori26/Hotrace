@@ -48,6 +48,8 @@ SRCS		:=\
 	ft_memset.c\
 	ft_strlen.c\
 	ft_strcpy.c\
+	ft_putstr_fd.c\
+	ft_putendl_fd.c\
 	hash.c\
 	hash_add.c\
 	hash_bucket.c\
