@@ -2,7 +2,7 @@ NAME		:= hotrace
 SHELL		:= /bin/bash
 
 CC			:= gcc
-CFLAGS		:= -Wall -Werror -Wextra -MMD -MP -g
+CFLAGS		:= -Wall -Werror -Wextra -MMD -MP -O2
 
 SRCDIR		:= srcs
 LIBFTDIR	:= ./libft
