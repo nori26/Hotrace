@@ -1,0 +1,16 @@
+*
+
+!**/
+!.gitignore
+!*.c
+!*.h
+!*.sh
+!Makefile
+!*.py
+!*.cc
+!*.cpp
+!*.hpp
+!*.yml
+!*_cpp
+!*.json
+test.c
