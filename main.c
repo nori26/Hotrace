@@ -29,6 +29,8 @@ t_hash	*create_dict(t_clist *kvlst)
 	{
 		key = kvlst->data;
 		value = kvlst->next->data;
+		if (!value)
+			break ;
 		kvlst = kvlst->next->next;
 	}
 	// hash_add(dict, key, value);
