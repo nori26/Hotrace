@@ -22,20 +22,11 @@ SRCS		:=\
 	ft_lstnew.c\
 	ft_lstadd_front.c\
 	ft_lstnew_add_front.c\
-	ft_clst_begin.c\
-	ft_clst_clear.c\
-	ft_clst_insert_all.c\
 	ft_clst_insert.c\
-	ft_clst_isempty.c\
+	ft_clst_clear.c\
 	ft_clst_isend.c\
-	ft_clst_last.c\
 	ft_clst_link.c\
-	ft_clst_next.c\
-	ft_clst_pop.c\
-	ft_clst_popdel.c\
-	ft_clst_size.c\
 	ft_clstadd_back.c\
-	ft_clstadd_front.c\
 	ft_clstdelone.c\
 	ft_clstfirst.c\
 	ft_clstnew_add_back.c\
