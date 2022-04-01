@@ -1,0 +1,11 @@
+a.out
+*.o
+sukesan.c
+tips.c
+ft_split_prev.c
+.vscode
+.sh
+*.a
+obj/
+main.c
+test.c
