@@ -38,12 +38,14 @@ bool	parse_kvlst_to_hash(t_hotrace *hr)
 	{
 		key = kvlst->data;
 		value = kvlst->next->data;
+		// kvlst->data = NULL;
+		// kvlst->next->data = NULL;
 		if (!hash_add(hr->dict, key, value))
 		{
 			hr_puterr("hash add");
 			return (false);
 		}
-		if (ft_clst_isend(kvlst->next))
+		if (!value)
 			break ;
 		kvlst = kvlst->next->next;
 	}
