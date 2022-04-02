@@ -29,7 +29,7 @@ bool	hash_add(t_hash *hash, char *key, char *value)
 		return (true);
 	}
 	else
-		return (hash_update_kvp(kvp, value));
+		return (hash_update_kvp(kvp, key, value));
 }
 
 t_kvp	*hash_new_kvp(char *key, char *value, uint64_t hash_val)
@@ -39,32 +39,17 @@ t_kvp	*hash_new_kvp(char *key, char *value, uint64_t hash_val)
 	kvp = (t_kvp *)ft_calloc(1, sizeof(t_kvp));
 	if (!kvp)
 		return (NULL);
-	// kvp->key = ft_strdup(key);
-	// if (value)
-	// 	kvp->value = ft_strdup(value);
-	// if (!kvp->key || (value && !kvp->value))
-	// {
-	// 	hash_del_kvp(kvp);
-	// 	return (NULL);
-	// }
 	kvp->key = key;
 	kvp->value = value;
 	kvp->_hash_val = hash_val;
 	return (kvp);
 }
 
-bool	hash_update_kvp(t_kvp *kvp, char *value)
+bool	hash_update_kvp(t_kvp *kvp, char *key, char *value)
 {
-	char	*new_value;
-
-	if (value)
-		new_value = ft_strdup(value);
-	else
-		new_value = NULL;
-	if (value && !new_value)
-		return (false);
+	free(key);
 	free(kvp->value);
-	kvp->value = new_value;
+	kvp->value = value;
 	return (true);
 }
 

@@ -23,7 +23,7 @@ bool		hash_add(t_hash *hash, char *key, char *value);
 bool		hash_add_kvp(t_hash *hash, t_kvp *kvp);
 bool		hash_exists(t_hash *hash, char *key);
 bool		hash_expand(t_hash *hash);
-bool		hash_update_kvp(t_kvp *kvp, char *value);
+bool		hash_update_kvp(t_kvp *kvp, char *key, char *value);
 char		*hash_get(t_hash *hash, char *key);
 size_t		hash_get_buckets_index(t_hash *hash, uint64_t hash_val);
 t_hash		*hash_new(size_t size);

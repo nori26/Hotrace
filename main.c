@@ -38,8 +38,8 @@ bool	parse_kvlst_to_hash(t_hotrace *hr)
 	{
 		key = kvlst->data;
 		value = kvlst->next->data;
-		// kvlst->data = NULL;
-		// kvlst->next->data = NULL;
+		kvlst->data = NULL;
+		kvlst->next->data = NULL;
 		if (!hash_add(hr->dict, key, value))
 		{
 			hr_puterr("hash add");
@@ -59,7 +59,7 @@ bool	read_into_dict(t_hotrace *hr)
 	is_ok = \
 		read_into_kvlst(hr->kvlst) && \
 		parse_kvlst_to_hash(hr);
-	ft_clst_clear(&hr->kvlst, NULL);
+	ft_clst_clear(&hr->kvlst, free);
 	return (is_ok);
 }
 
