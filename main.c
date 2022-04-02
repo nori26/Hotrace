@@ -57,7 +57,7 @@ bool	read_into_dict(t_hotrace *hr)
 	is_ok = \
 		read_into_kvlst(hr->kvlst) && \
 		parse_kvlst_to_hash(hr);
-	ft_clst_clear(&hr->kvlst, free);
+	ft_clst_clear(&hr->kvlst, NULL);
 	return (is_ok);
 }
 
