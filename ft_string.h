@@ -5,8 +5,6 @@
 # include <stddef.h>
 # include <stdbool.h>
 
-char	*ft_strcpy(char *dest, const char *src);
-char	*ft_strdup(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
 size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t nmemb, size_t size);

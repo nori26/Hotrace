@@ -34,11 +34,9 @@ SRCS		:=\
 	ft_memchr.c\
 	ft_setptr.c\
 	ft_strcmp.c\
-	ft_strdup.c\
 	ft_calloc.c\
 	ft_memset.c\
 	ft_strlen.c\
-	ft_strcpy.c\
 	ft_putstr_fd.c\
 	ft_putendl_fd.c\
 	hash.c\
