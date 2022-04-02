@@ -14,3 +14,4 @@
 !*_cpp
 !*.json
 test.c
+!HotRaceTester
