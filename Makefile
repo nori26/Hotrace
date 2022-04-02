@@ -151,4 +151,10 @@ norm	:
 			printf '$(GREEN)%s\n$(RESET)' 'Norm: OK!'; \
 		fi
 
-.PHONY	: all clean fclean re bonus add norm rm_exec rm_reloc b_clean b_fclean head _libft test rl
+grademe	: $(NAME)
+	cd ./HotRaceTester && bash ./grademe.sh
+
+bench	: $(NAME)
+	cd ./HotRaceTester && zsh ./bench.sh 10000
+
+.PHONY	: all clean fclean re bonus add norm rm_exec rm_reloc b_clean b_fclean head _libft test rl grademe bench
