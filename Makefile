@@ -1,8 +1,8 @@
 NAME		:= hotrace
 SHELL		:= /bin/bash
 
-CC			:= gcc
-CFLAGS		:= -Wall -Werror -Wextra -MMD -MP -O2
+CC			:= cc
+CFLAGS		:= -Wall -Werror -Wextra -MMD -MP
 
 SRCDIR		:= srcs
 LIBFTDIR	:= ./libft
@@ -48,6 +48,9 @@ SRCS		:=\
 	hash_del.c\
 	hash_get.c\
 	hash_util.c\
+	hr_input.c\
+	hr_output.c\
+	hr_puterr.c\
 	main.c\
 
 OBJS		:= $(SRCS:.c=.o)
