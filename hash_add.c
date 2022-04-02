@@ -36,7 +36,7 @@ t_kvp	*hash_new_kvp(char *key, char *value, uint64_t hash_val)
 {
 	t_kvp	*kvp;
 
-	kvp = (t_kvp *)ft_calloc(1, sizeof(t_kvp));
+	kvp = (t_kvp *)malloc(sizeof(t_kvp));
 	if (!kvp)
 		return (NULL);
 	kvp->key = key;
