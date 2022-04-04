@@ -39,6 +39,8 @@ SRCS		:=\
 	ft_strlen.c\
 	ft_putstr_fd.c\
 	ft_putendl_fd.c\
+	ft_puts.c\
+	ft_putstr_buf.c\
 	hash.c\
 	hash_add.c\
 	hash_bucket.c\
@@ -49,6 +51,8 @@ SRCS		:=\
 	hr_input.c\
 	hr_output.c\
 	hr_puterr.c\
+	wr_init.c\
+	wr_write.c\
 	main.c\
 
 OBJS		:= $(SRCS:.c=.o)

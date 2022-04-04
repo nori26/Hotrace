@@ -3,15 +3,16 @@
 #include "ft_list.h"
 #include "hash.h"
 #include "hotrace.h"
+#include "wrbuf.h"
 
-static void	print_value(char *key, char *value)
+static void	print_value(char *key, char *value, t_wrbuf *wr)
 {
 	if (value)
-		ft_putendl_fd(value, STDOUT_FILENO);
+		ft_puts(wr, value);
 	else
 	{
-		ft_putstr_fd(key, STDOUT_FILENO);
-		ft_putendl_fd(": Not found.", STDOUT_FILENO);
+		ft_putstr_buf(wr, key);
+		ft_puts(wr, ": Not found.");
 	}
 }
 
@@ -21,14 +22,17 @@ void	print_values_of_keylst(t_hotrace *hr)
 	char	*value;
 	t_hash	*dict;
 	t_clist	*keylst;
+	t_wrbuf	wr;
 
+	wr_init(&wr);
 	dict = hr->dict;
 	keylst = ft_clstfirst(hr->keylst);
 	while (!ft_clst_isend(keylst))
 	{
 		key = keylst->data;
 		value = hash_get(dict, key);
-		print_value(key, value);
+		print_value(key, value, &wr);
 		keylst = keylst->next;
 	}
+	wr_end(&wr);
 }
