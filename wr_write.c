@@ -26,7 +26,7 @@ void	wr_store(t_wrbuf *wr, const char **sp)
 ssize_t	wr_flush(t_wrbuf *wr, size_t size)
 {
 	if (!size)
-		return (1);
+		return (0);
 	wr->idx = 0;
 	return (wr_write(wr->fd, wr->buf, size));
 }
