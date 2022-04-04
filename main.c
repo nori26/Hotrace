@@ -5,7 +5,7 @@
 #include "hash.h"
 #include "hotrace.h"
 
-#define HASH_BASE_SIZE 1000000
+#define HASH_BASE_SIZE 10000000
 
 void	destroy_hotrace(t_hotrace *hr)
 {
