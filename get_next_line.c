@@ -13,7 +13,7 @@ static int	lst_init(t_list **lst, t_list *start)
 
 	content = malloc(sizeof(t_buf));
 	*lst = ft_lstnew(content);
-	if (!content || !lst)
+	if (!content || !*lst)
 		return (1);
 	((t_buf *)((*lst)->content))->start = start;
 	return (0);
