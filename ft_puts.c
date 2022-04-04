@@ -4,10 +4,16 @@
 
 ssize_t	ft_puts(t_wrbuf *wr, const char *s)
 {
+	ssize_t		written1;
+	ssize_t		written2;
 	const char	*nl = "\n";
 
-	ft_putstr_buf(wr, s);
+	written1 = ft_putstr_buf(wr, s);
+	if (written1 < 0)
+		return (-1);
 	wr_store(wr, &nl);
-	wr_flush_filled(wr);
-	return (1);
+	written2 = wr_flush_filled(wr);
+	if (written2 < 0)
+		return (-1);
+	return (written1 + written2);
 }
