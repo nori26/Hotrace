@@ -38,9 +38,9 @@ ssize_t	wr_end(t_wrbuf *wr)
 
 ssize_t	wr_write(int fd, const void *buf, size_t n)
 {
-	size_t	remained;
-	size_t	written;
-	char	*ptr;
+	ssize_t		remained;
+	ssize_t		written;
+	const char	*ptr;
 
 	ptr = buf;
 	remained = n;
